@@ -147,32 +147,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 animate-float">
-              <div className="w-12 h-12 bg-paprish-100 rounded-xl flex items-center justify-center">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="text-paprish-600"
-                >
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-              <div>
-                <div className="text-xs text-charcoal-muted/60 font-medium">
-                  Rated
-                </div>
-                <div className="font-serif font-bold text-lg text-charcoal leading-tight">
-                  4.8 / 5.0
-                </div>
-              </div>
-            </div>
-
             {/* Decorative element */}
             <div className="absolute -top-8 -right-8 w-24 h-24 border border-paprish-400/20 rounded-full hidden lg:block" />
           </div>
