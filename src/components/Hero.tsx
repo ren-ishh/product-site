@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-paprish-300/25" />
       <div className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full border border-paprish-300/15" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-32 lg:py-40 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-40 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left - Text Content */}
           <div>
@@ -67,7 +67,7 @@ export default function Hero() {
             </div>
 
             {/* Trust badges */}
-            <div className="flex items-center gap-8 mt-12 pt-8 border-t border-charcoal/8 animate-fade-up delay-400">
+            <div className="flex flex-wrap items-center gap-4 mt-10 pt-8 border-t border-charcoal/8 animate-fade-up delay-400">
               <div className="flex items-center gap-2">
                 <svg
                   width="16"

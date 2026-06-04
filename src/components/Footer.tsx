@@ -13,7 +13,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Paprish Foods Logo"
-                className="w-auto h-40 object-contain transition-transform duration-300 group-hover:scale-105"
+                className="w-auto h-16 object-contain transition-transform duration-300 group-hover:scale-105"
               />
               {/* Note: Delete this div below if your logo image already includes the text */}
 

@@ -36,7 +36,7 @@ export default function Navbar() {
           <img
             src="/images/logo.png"
             alt="Paprish Foods Logo"
-            className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${isScrolled ? "h-14" : "h-20" // Shrinks slightly when scrolling so it doesn't block the screen
+            className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${isScrolled ? "h-10" : "h-12"
               }`}
           />
           {/* Note: If your logo image already has the text "Paprish Foods" inside it, you can delete this div below! */}

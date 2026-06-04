@@ -24,7 +24,7 @@ export default function ContactBanner() {
               <span className="text-paprish-600 italic">place an order?</span>
             </h2>
 
-            <p className="text-charcoal-muted/60 leading-relaxed max-w-md mb-10 text-base">
+            <p className="text-charcoal-muted/60 leading-relaxed max-w-md mb-6 lg:mb-10 text-base">
               Whether you want to order for your home, stock our products in your retail store, or have a general inquiry — we are just a message away.
             </p>
 

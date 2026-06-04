@@ -16,6 +16,7 @@ export default function Products() {
   // Ordering Modal State
   const [orderProduct, setOrderProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -35,6 +36,9 @@ export default function Products() {
   const filtered = activeCategory === "all"
     ? products
     : products.filter((p) => p.category === activeCategory);
+
+  const MOBILE_LIMIT = 4;
+  const hasMore = filtered.length > MOBILE_LIMIT;
 
   // Helper to open the order modal and reset quantity
   const handleOpenOrder = (product: Product) => {
@@ -128,67 +132,82 @@ export default function Products() {
                 <p className="text-sm">Add products from the admin panel to see them here.</p>
               </div>
             ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filtered.map((product, i) => (
-                  <ScrollReveal key={product.id} delay={i * 60}>
-                    {/* Make the entire card clickable */}
-                    <div
-                      onClick={() => handleOpenOrder(product)}
-                      className="group bg-white rounded-2xl overflow-hidden hover-lift relative border border-charcoal/5 h-full flex flex-col cursor-pointer"
+              <>
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
+                  {filtered.map((product, i) => (
+                    <ScrollReveal
+                      key={product.id}
+                      delay={i * 60}
+                      className={`${!showAll && i >= MOBILE_LIMIT ? "hidden sm:block" : ""}`}
                     >
-                      {product.featured && (
-                        <div className="product-card-ribbon">Bestseller</div>
-                      )}
+                      {/* Make the entire card clickable */}
+                      <div
+                        onClick={() => handleOpenOrder(product)}
+                        className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden hover-lift relative border border-charcoal/5 h-full flex flex-col cursor-pointer"
+                      >
+                        {product.featured && (
+                          <div className="product-card-ribbon">Bestseller</div>
+                        )}
 
-                      {/* Image */}
-                      <div className="aspect-[4/3] overflow-hidden bg-paprish-100/50 shrink-0 relative">
-                        <img
-                          src={product.image_url || PLACEHOLDER}
-                          alt={product.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                          onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
-                        />
-                        {/* Hover Overlay indicating clickability */}
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <span className="bg-white text-charcoal font-medium text-sm px-5 py-2.5 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            Order Now
-                          </span>
+                        {/* Image */}
+                        <div className="aspect-[4/3] overflow-hidden bg-paprish-100/50 shrink-0 relative">
+                          <img
+                            src={product.image_url || PLACEHOLDER}
+                            alt={product.name}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
+                          />
+                          {/* Hover Overlay indicating clickability */}
+                          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:flex items-center justify-center">
+                            <span className="bg-white text-charcoal font-medium text-sm px-5 py-2.5 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                              Order Now
+                            </span>
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Content */}
-                      <div className="p-5 flex flex-col flex-1">
-                        <div className="flex items-start justify-between gap-2 mb-2">
-                          <h3 className="font-serif font-semibold text-charcoal leading-snug text-base">
+                        {/* Content */}
+                        <div className="p-3 sm:p-5 flex flex-col flex-1">
+                          <h3 className="font-serif font-semibold text-charcoal leading-snug text-xs sm:text-base mb-1 line-clamp-2">
                             {product.name}
                           </h3>
-                          <span className="shrink-0 w-8 h-8 rounded-full bg-paprish-100 flex items-center justify-center transition-colors duration-300 group-hover:bg-paprish-200">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-paprish-600">
-                              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </span>
-                        </div>
-                        <p className="text-xs text-charcoal-muted/50 leading-relaxed mb-3 line-clamp-2 flex-1">
-                          {product.description}
-                        </p>
+                          <p className="hidden sm:block text-xs text-charcoal-muted/50 leading-relaxed mb-3 line-clamp-2 flex-1">
+                            {product.description}
+                          </p>
 
-                        {/* Price and Weight */}
-                        <div className="pt-3 border-t border-charcoal/5 flex items-center justify-between">
-                          <span className="text-[0.65rem] font-sans font-bold tracking-wider text-paprish-600 uppercase">
-                            {product.weight}
-                          </span>
-                          {product.price && (
-                            <span className="font-sans font-bold text-charcoal text-base tracking-tight">
-                              ₹{product.price}
+                          {/* Price and Weight */}
+                          <div className="pt-2 sm:pt-3 border-t border-charcoal/5 flex items-center justify-between mt-auto">
+                            <span className="text-[0.55rem] sm:text-[0.65rem] font-sans font-bold tracking-wider text-paprish-600 uppercase truncate mr-1">
+                              {product.weight}
                             </span>
-                          )}
+                            {product.price && (
+                              <span className="font-sans font-bold text-charcoal text-xs sm:text-base shrink-0">
+                                ₹{product.price}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
+                    </ScrollReveal>
+                  ))}
+                </div>
+
+                {/* See All / Show Less — mobile only */}
+                {hasMore && (
+                  <div className="flex justify-center mt-8 sm:hidden">
+                    <button
+                      onClick={() => setShowAll(!showAll)}
+                      className="flex items-center gap-2 bg-white border border-charcoal/10 text-charcoal text-sm font-semibold px-8 py-3 rounded-full shadow-sm hover:bg-paprish-50 transition-all duration-300"
+                    >
+                      {showAll ? (
+                        <>Show Less <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 15l-6-6-6 6"/></svg></>
+                      ) : (
+                        <>See All {filtered.length} Products <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></>
+                      )}
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </>
         )}
@@ -236,14 +255,14 @@ export default function Products() {
                 <div className="flex items-center gap-4">
                   <button
                     onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                    className="w-8 h-8 rounded-full bg-white border border-charcoal/10 flex items-center justify-center hover:bg-paprish-50 transition-colors"
+                    className="w-11 h-11 rounded-full bg-white border border-charcoal/10 flex items-center justify-center hover:bg-paprish-50 transition-colors"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14" /></svg>
                   </button>
                   <span className="font-bold text-charcoal w-4 text-center">{quantity}</span>
                   <button
                     onClick={() => setQuantity(q => q + 1)}
-                    className="w-8 h-8 rounded-full bg-white border border-charcoal/10 flex items-center justify-center hover:bg-paprish-50 transition-colors"
+                    className="w-11 h-11 rounded-full bg-white border border-charcoal/10 flex items-center justify-center hover:bg-paprish-50 transition-colors"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" /></svg>
                   </button>

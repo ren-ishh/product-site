@@ -22,27 +22,39 @@ export default function About() {
   return (
     <section id="about" className="py-24 lg:py-32 bg-cream relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-paprish-100/40 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <ScrollReveal>
-            <div className="image-frame">
-              <div className="aspect-[5/6] rounded-2xl overflow-hidden bg-paprish-200">
-                <img src="/images/about-craft.jpg" alt="Crafting natural mixes at Paprish Foods" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div className="hidden lg:flex absolute -right-8 bottom-12 bg-white rounded-2xl shadow-lg px-6 py-5 items-center gap-5">
-              <div className="text-center">
-                <div className="font-serif font-bold text-2xl text-charcoal">100%</div>
-                <div className="text-[0.65rem] text-charcoal-muted/60 tracking-wide uppercase">Natural</div>
-              </div>
-              <div className="w-[1px] h-10 bg-charcoal/10" />
-              <div className="text-center">
-                <div className="font-serif font-bold text-2xl text-charcoal">0%</div>
-                <div className="text-[0.65rem] text-charcoal-muted/60 tracking-wide uppercase">Chemicals</div>
-              </div>
-            </div>
-          </ScrollReveal>
 
+          {/* ── Desktop only: image LEFT, text RIGHT ── */}
+          <div className="hidden lg:block">
+            <ScrollReveal>
+              <div className="image-frame relative">
+                <div className="aspect-[5/6] rounded-2xl overflow-hidden bg-paprish-200">
+                  <img
+                    src="/images/about-craft.jpg"
+                    alt="Crafting natural mixes at Paprish Foods"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              {/* Stats card overlay — desktop only */}
+              <div className="hidden lg:flex absolute -right-8 bottom-12 bg-white rounded-2xl shadow-lg px-6 py-5 items-center gap-5">
+                <div className="text-center">
+                  <div className="font-serif font-bold text-2xl text-charcoal">100%</div>
+                  <div className="text-[0.65rem] text-charcoal-muted/60 tracking-wide uppercase">Natural</div>
+                </div>
+                <div className="w-[1px] h-10 bg-charcoal/10" />
+                <div className="text-center">
+                  <div className="font-serif font-bold text-2xl text-charcoal">0%</div>
+                  <div className="text-[0.65rem] text-charcoal-muted/60 tracking-wide uppercase">Chemicals</div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* ── Text content — always visible ── */}
           <div>
             <ScrollReveal>
               <div className="inline-flex items-center gap-3 mb-6">
@@ -62,6 +74,7 @@ export default function About() {
               </p>
             </ScrollReveal>
 
+            {/* Values */}
             <div className="space-y-6">
               {values.map((value, i) => (
                 <ScrollReveal key={value.number} delay={i * 100}>
@@ -78,6 +91,33 @@ export default function About() {
               ))}
             </div>
           </div>
+
+          {/* ── Mobile only: image BELOW text ── */}
+          <div className="lg:hidden">
+            <ScrollReveal>
+              <div className="aspect-[5/6] rounded-2xl overflow-hidden bg-paprish-200">
+                <img
+                  src="/images/about-craft.jpg"
+                  alt="Crafting natural mixes at Paprish Foods"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              {/* Mobile stats row */}
+              <div className="flex justify-center gap-10 mt-6 pt-6 border-t border-charcoal/10">
+                <div className="text-center">
+                  <div className="font-serif font-bold text-2xl text-charcoal">100%</div>
+                  <div className="text-[0.65rem] text-charcoal-muted/60 uppercase tracking-wide">Natural</div>
+                </div>
+                <div className="w-px bg-charcoal/10" />
+                <div className="text-center">
+                  <div className="font-serif font-bold text-2xl text-charcoal">0%</div>
+                  <div className="text-[0.65rem] text-charcoal-muted/60 uppercase tracking-wide">Chemicals</div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
         </div>
       </div>
     </section>
