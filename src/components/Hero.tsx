@@ -34,7 +34,7 @@ export default function Hero() {
 
             <p className="text-base sm:text-lg text-charcoal-muted/70 leading-relaxed max-w-lg mb-10 animate-fade-up delay-200">
               From our kitchen to yours — Paprish Foods brings you the finest
-              quality rice, spices, lentils, and dry food essentials, carefully
+              quality spices,instant snack mixes and authentic masalas, carefully
               sourced and hygienically packed to preserve nature's goodness.
             </p>
 
