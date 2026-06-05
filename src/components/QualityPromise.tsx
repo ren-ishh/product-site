@@ -55,17 +55,19 @@ export default function QualityPromise() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           <ScrollReveal>
             <div className="inline-flex items-center gap-3 mb-6">
-              <span className="w-12 h-[2px] bg-paprish-500" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-paprish-400">Quality Promise</span>
+              <span className="w-12 h-[2px] bg-crimson-700" />
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-crimson-400">
+                Quality Promise
+              </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-6">
-              We don't cut<br />corners. <span className="text-paprish-400 italic">Ever.</span>
+              We don't cut<br />corners. <span className="text-crimson-400 italic">Ever.</span>
             </h2>
             <p className="text-white/50 leading-relaxed max-w-md mb-10 text-base">
               Quality isn't a department at Paprish — it's the foundation of everything we do. From farm to packet, every step is designed to preserve what nature intended.
             </p>
             <div className="flex items-center gap-6 p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-              <div className="font-serif text-5xl font-bold text-paprish-400 leading-none">100%</div>
+              <div className="font-serif text-5xl font-bold text-crimson-400 leading-none">100%</div>
               <div>
                 <div className="font-medium text-white/80 text-sm">Satisfaction Promise</div>
                 <div className="text-white/40 text-xs leading-relaxed mt-1">Not happy with the quality? We'll make it right — no questions asked.</div>
@@ -77,7 +79,7 @@ export default function QualityPromise() {
             {features.map((feature, i) => (
               <ScrollReveal key={feature.title} delay={i * 100}>
                 <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 hover:bg-white/[0.06] transition-colors duration-300 group h-full">
-                  <div className="w-12 h-12 rounded-xl bg-paprish-500/15 text-paprish-400 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-paprish-500/25">
+                  <div className="w-12 h-12 rounded-xl bg-crimson-700/15 text-crimson-400 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-crimson-700/25">
                     {feature.icon}
                   </div>
                   <h4 className="font-serif font-semibold text-white mb-2 text-base">{feature.title}</h4>

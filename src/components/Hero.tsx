@@ -17,7 +17,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-3 mb-8 animate-fade-in">
               <span className="accent-line animate-reveal-line" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-paprish-600">
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-crimson-700">
                 Premium Packaged Foods
               </span>
             </div>
@@ -25,7 +25,7 @@ export default function Hero() {
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-[1.08] tracking-tight mb-6 animate-fade-up">
               Pure taste,
               <br />
-              <span className="text-paprish-600 italic font-medium">
+              <span className="text-crimson-700 italic font-medium">
                 packed fresh
               </span>
               <br />
@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-up delay-300">
               <a
                 href="#products"
-                className="inline-flex items-center justify-center gap-2 bg-charcoal text-white font-medium px-8 py-4 rounded-full hover:bg-charcoal-light transition-all duration-300 hover:shadow-xl hover:shadow-charcoal/10 group"
+                className="inline-flex items-center justify-center gap-2 bg-crimson-700 text-white font-medium px-8 py-4 rounded-full hover:bg-crimson-800 transition-all duration-300 hover:shadow-xl hover:shadow-crimson-700/20 group"
               >
                 Explore Products
                 <svg
@@ -74,7 +74,7 @@ export default function Hero() {
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="text-paprish-500"
+                  className="text-crimson-700"
                 >
                   <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15" />
                   <path
@@ -95,7 +95,7 @@ export default function Hero() {
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="text-paprish-500"
+                  className="text-crimson-700"
                 >
                   <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15" />
                   <path
@@ -116,7 +116,7 @@ export default function Hero() {
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="text-paprish-500"
+                  className="text-crimson-700"
                 >
                   <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15" />
                   <path

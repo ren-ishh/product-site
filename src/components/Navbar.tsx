@@ -63,7 +63,7 @@ export default function Navbar() {
           ))}
           <a
             href="#products"
-            className="bg-charcoal text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-charcoal-light transition-all shadow-md shadow-charcoal/10"
+            className="bg-crimson-700 text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-crimson-800 transition-all shadow-md shadow-crimson-700/20"
           >
             Order Now
           </a>

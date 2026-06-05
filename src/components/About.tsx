@@ -3,18 +3,21 @@ import ScrollReveal from "./ScrollReveal";
 const values = [
   {
     number: "01",
-    title: "Pure & Unadulterated",
-    description: "We never use fillers, artificial colors, or chemical preservatives. What you see on our ingredient list is exactly what you get.",
+    title: "Crafted with Care",
+    description:
+      "Every product is made with intention — no shortcuts, no unnecessary additives. Just real ingredients, handled with pride.",
   },
   {
     number: "02",
-    title: "Perfectly Proportioned",
-    description: "Our instant snack mixes are crafted using traditional recipes, balancing premium ingredients so you get perfect, golden, and crispy snacks every single time.",
+    title: "Rich in Natural Goodness",
+    description:
+      "From aromatic spice blends to ready-to-use mandi and biriyani kits — every pack delivers a premium, chemical-free experience.",
   },
   {
     number: "03",
-    title: "Freshness Sealed",
-    description: "From our stone-ground spices to our ready-to-cook batter mixes, everything is packed hygienically to lock in maximum aroma and authentic flavor.",
+    title: "A Promise in Every Pack",
+    description:
+      "Paprish Foods is more than a brand. It's a commitment to purity, consistency, and excellence — delivered to your kitchen every time.",
   },
 ];
 
@@ -59,18 +62,22 @@ export default function About() {
             <ScrollReveal>
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="accent-line" />
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-paprish-600">Our Story</span>
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-crimson-700">
+                  Our Story
+                </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-6">
-                Real ingredients,
+                Where purity
                 <br />
-                <span className="text-paprish-600 italic">unforgettable flavor.</span>
+                <span className="text-crimson-700 italic">becomes a promise.</span>
               </h2>
+
               <p className="text-base text-charcoal-muted/70 leading-relaxed mb-8">
-                Paprish Foods was born from a simple passion: bringing the authentic, comforting flavors of home-cooked snacks to your kitchen, without the hassle. We realized that convenience shouldn't mean compromising on your family's health.
+                At Paprish Foods, we redefine everyday food with a touch of purity and excellence. Our philosophy is rooted in creating products that are crafted with care, free from unnecessary chemicals, and rich in natural goodness.
               </p>
+
               <p className="text-base text-charcoal-muted/70 leading-relaxed mb-10">
-                That's why our signature masala blends and instant snack mixes are crafted entirely from nature. By carefully selecting premium spices and grains, we deliver products that let you effortlessly fry perfect, golden bajjis, crispy bondas, and delicious fritters that taste exactly like grandmother used to make.
+                Every blend, every mix, and every product is designed to deliver a premium experience — from aromatic spices to ready-to-use mandi and biriyani kits. We are not just building a food brand; we are building a promise — a promise of purity, consistency, and excellence in every pack.
               </p>
             </ScrollReveal>
 
@@ -79,7 +86,7 @@ export default function About() {
               {values.map((value, i) => (
                 <ScrollReveal key={value.number} delay={i * 100}>
                   <div className="flex gap-5 group cursor-default">
-                    <span className="font-serif text-2xl text-paprish-300 font-bold leading-none mt-0.5 transition-colors duration-300 group-hover:text-paprish-500">
+                    <span className="font-serif text-2xl text-crimson-700/30 font-bold leading-none mt-0.5 transition-colors duration-300 group-hover:text-crimson-700">
                       {value.number}
                     </span>
                     <div>

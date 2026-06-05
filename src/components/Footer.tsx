@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-charcoal text-white relative overflow-hidden">
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-paprish-500/30 to-transparent" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-crimson-700/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-14">
@@ -49,7 +49,7 @@ export default function Footer() {
                 href="https://www.instagram.com/paprish_foods?igsh=MXQ2YWJ1cmI4eTFiYw=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.04] flex items-center justify-center text-white/40 hover:text-pink-400 hover:bg-pink-400/10 transition-all duration-300"
+                className="w-9 h-9 rounded-lg bg-white/[0.04] flex items-center justify-center text-white/40 hover:text-crimson-400 hover:bg-crimson-400/10 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -97,7 +97,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-white/40">
               <li>
                 <a href="tel:+916374603180" className="flex items-center gap-3 hover:text-white transition-colors duration-300 group">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-paprish-400 group-hover:text-paprish-300">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-crimson-400 group-hover:text-crimson-300">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                   +91 63746 03180
@@ -105,14 +105,14 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://wa.me/916374603180" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[#25D366] transition-colors duration-300 group">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-paprish-400 group-hover:text-[#25D366]">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-crimson-400 group-hover:text-[#25D366]">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                   </svg>
                   WhatsApp Us
                 </a>
               </li>
               <li className="flex items-start gap-3 mt-4">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-paprish-400 mt-0.5 shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-crimson-400 mt-0.5 shrink-0">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>

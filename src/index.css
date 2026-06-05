@@ -18,16 +18,17 @@
   --color-paprish-900: #5c3923;
 
   /* Deep Crimson */
-  --color-crimson-50: #fef2f2;
-  --color-crimson-100: #fde3e3;
-  --color-crimson-200: #fbcbcb;
-  --color-crimson-300: #f8a5a5;
-  --color-crimson-400: #f27171;
-  --color-crimson-500: #e84444;
-  --color-crimson-600: #d42727;
-  --color-crimson-700: #b11c1c;
-  --color-crimson-800: #801818;
-  --color-crimson-900: #5c1515;
+  --color-crimson-50: #fff0f0;
+  --color-crimson-100: #ffe0e0;
+  --color-crimson-200: #ffc0c0;
+  --color-crimson-300: #ff9090;
+  --color-crimson-400: #f56060;
+  --color-crimson-500: #ee3333;
+  --color-crimson-600: #e52020;
+  --color-crimson-700: #DD1F1F;
+  /* ← main brand red, use this everywhere */
+  --color-crimson-800: #c41a1a;
+  --color-crimson-900: #8b1010;
 
   /* Warm Creams */
   --color-cream: #faf7f2;
@@ -224,7 +225,8 @@ body {
 .accent-line {
   width: 48px;
   height: 2px;
-  background-color: #c4853d;
+  background-color: #b11c1c;
+  /* was #c4853d */
   display: inline-block;
 }
 

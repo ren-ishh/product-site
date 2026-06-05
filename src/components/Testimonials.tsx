@@ -58,18 +58,18 @@ export default function Testimonials() {
           <div className="text-center mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-3 mb-5">
               <span className="accent-line" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-paprish-600">Customer Reviews</span>
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-crimson-700">Customer Reviews</span>
               <span className="accent-line" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-4">
-              Loved by families<br /><span className="text-paprish-600 italic">across India.</span>
+              Loved by families<br /><span className="text-crimson-700 italic">across India.</span>
             </h2>
             <p className="text-charcoal-muted/60 max-w-lg mx-auto text-base mb-8">
               Real feedback from real kitchens. See why our 100% natural mixes are becoming an evening snack staple.
             </p>
             <button
               onClick={() => setShowModal(true)}
-              className="bg-charcoal text-white text-sm font-medium px-8 py-3 rounded-full hover:bg-charcoal-light transition-all duration-300 shadow-lg shadow-charcoal/10"
+              className="bg-crimson-700 text-white text-sm font-medium px-8 py-3 rounded-full hover:bg-crimson-800 transition-all duration-300 shadow-lg shadow-crimson-700/20"
             >
               Share Your Experience
             </button>
@@ -92,7 +92,7 @@ export default function Testimonials() {
                   <div className="flex items-center justify-between mb-5">
                     <div className="flex gap-0.5">
                       {Array.from({ length: 5 }).map((_, j) => (
-                        <svg key={j} width="15" height="15" viewBox="0 0 24 24" className={j < t.rating ? "text-paprish-500" : "text-gray-200"}>
+                        <svg key={j} width="15" height="15" viewBox="0 0 24 24" className={j < t.rating ? "text-crimson-700" : "text-gray-200"}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" />
                         </svg>
                       ))}
@@ -103,7 +103,7 @@ export default function Testimonials() {
                   </div>
                   <blockquote className="text-charcoal-muted/70 leading-relaxed text-sm flex-1 mb-6">&ldquo;{t.quote}&rdquo;</blockquote>
                   <div className="flex items-center gap-4 pt-5 border-t border-charcoal/5">
-                    <div className="w-11 h-11 rounded-full bg-paprish-100 flex items-center justify-center text-paprish-700 font-semibold text-sm shrink-0 uppercase">
+                    <div className="w-11 h-11 rounded-full bg-crimson-700/10 flex items-center justify-center text-crimson-700 font-semibold text-sm shrink-0 uppercase">
                       {t.name.charAt(0)}
                     </div>
                     <div>
@@ -152,7 +152,7 @@ export default function Testimonials() {
                   <div className="flex gap-2">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button key={star} type="button" onClick={() => setForm({ ...form, rating: star })} className="focus:outline-none">
-                        <svg width="24" height="24" viewBox="0 0 24 24" className={star <= form.rating ? "text-paprish-500" : "text-gray-200"}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" className={star <= form.rating ? "text-crimson-700" : "text-gray-200"}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" />
                         </svg>
                       </button>

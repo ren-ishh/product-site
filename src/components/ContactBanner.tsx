@@ -13,7 +13,7 @@ export default function ContactBanner() {
           <ScrollReveal>
             <div className="inline-flex items-center gap-3 mb-6">
               <span className="accent-line" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-paprish-600">
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-crimson-700">
                 Get in Touch
               </span>
             </div>
@@ -21,7 +21,7 @@ export default function ContactBanner() {
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-6">
               Ready to
               <br />
-              <span className="text-paprish-600 italic">place an order?</span>
+              <span className="text-crimson-700 italic">place an order?</span>
             </h2>
 
             <p className="text-charcoal-muted/60 leading-relaxed max-w-md mb-6 lg:mb-10 text-base">
@@ -32,14 +32,14 @@ export default function ContactBanner() {
             <div className="space-y-5">
               {/* Phone */}
               <div className="flex items-center gap-4">
-                <a href="tel:+916374603180" className="w-11 h-11 rounded-xl bg-paprish-100 flex items-center justify-center shrink-0 hover:bg-paprish-200 transition-colors">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-paprish-600">
+                <a href="tel:+916374603180" className="w-11 h-11 rounded-xl bg-crimson-700/10 flex items-center justify-center shrink-0 hover:bg-crimson-700/20 transition-colors">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-crimson-700">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </a>
                 <div>
                   <div className="text-xs text-charcoal-muted/50 uppercase tracking-wider font-medium">Phone</div>
-                  <a href="tel:+916374603180" className="text-charcoal font-medium hover:text-paprish-600 transition-colors">
+                  <a href="tel:+916374603180" className="text-charcoal font-medium hover:text-crimson-700 transition-colors">
                     +91 63746 03180
                   </a>
                 </div>
@@ -47,8 +47,8 @@ export default function ContactBanner() {
 
               {/* Location */}
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl bg-paprish-100 flex items-center justify-center shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-paprish-600">
+                <div className="w-11 h-11 rounded-xl bg-crimson-700/10 flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-crimson-700">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
@@ -65,7 +65,7 @@ export default function ContactBanner() {
               <div className="flex items-center gap-3 pt-2">
                 <a
                   href="tel:+916374603180"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-paprish-100 hover:bg-paprish-200 transition-colors text-paprish-700 text-sm font-semibold"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-crimson-700/10 hover:bg-crimson-700/20 transition-colors text-crimson-700 text-sm font-semibold"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
