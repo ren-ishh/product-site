@@ -62,7 +62,7 @@ export default function Testimonials() {
               <span className="accent-line" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-4">
-              Loved by families<br /><span className="text-crimson-700 italic">across India.</span>
+              Loved by families<br /><span className="text-crimson-700">across India.</span>
             </h2>
             <p className="text-charcoal-muted/60 max-w-lg mx-auto text-base mb-8">
               Real feedback from real kitchens. See why our 100% natural mixes are becoming an evening snack staple.

@@ -21,7 +21,7 @@ export default function ContactBanner() {
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-6">
               Ready to
               <br />
-              <span className="text-crimson-700 italic">place an order?</span>
+              <span className="text-crimson-700">place an order?</span>
             </h2>
 
             <p className="text-charcoal-muted/60 leading-relaxed max-w-md mb-6 lg:mb-10 text-base">
@@ -32,15 +32,15 @@ export default function ContactBanner() {
             <div className="space-y-5">
               {/* Phone */}
               <div className="flex items-center gap-4">
-                <a href="tel:+916374603180" className="w-11 h-11 rounded-xl bg-crimson-700/10 flex items-center justify-center shrink-0 hover:bg-crimson-700/20 transition-colors">
+                <a href="tel:+918531934020" className="w-11 h-11 rounded-xl bg-crimson-700/10 flex items-center justify-center shrink-0 hover:bg-crimson-700/20 transition-colors">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-crimson-700">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </a>
                 <div>
                   <div className="text-xs text-charcoal-muted/50 uppercase tracking-wider font-medium">Phone</div>
-                  <a href="tel:+916374603180" className="text-charcoal font-medium hover:text-crimson-700 transition-colors">
-                    +91 63746 03180
+                  <a href="tel:+918531934020" className="text-charcoal font-medium hover:text-crimson-700 transition-colors">
+                    +91 85319 34020
                   </a>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function ContactBanner() {
               {/* 3 Pill Buttons */}
               <div className="flex items-center gap-3 pt-2">
                 <a
-                  href="tel:+916374603180"
+                  href="tel:+918531934020"
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-crimson-700/10 hover:bg-crimson-700/20 transition-colors text-crimson-700 text-sm font-semibold"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -73,7 +73,7 @@ export default function ContactBanner() {
                   Call
                 </a>
                 <a
-                  href="https://wa.me/916374603180"
+                  href="https://wa.me/918531934020"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors text-[#128C7E] text-sm font-semibold"
@@ -115,7 +115,7 @@ export default function ContactBanner() {
                 Skip the forms! The fastest way to get our 100% natural mixes delivered to your door is by messaging us directly on WhatsApp.
               </p>
               <a
-                href="https://wa.me/916374603180"
+                href="https://wa.me/918531934020"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full bg-[#25D366] text-white font-medium py-3.5 rounded-xl hover:bg-[#20bd5a] transition-all duration-300 shadow-lg shadow-[#25D366]/20 group"

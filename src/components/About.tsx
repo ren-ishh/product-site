@@ -67,9 +67,9 @@ export default function About() {
                 </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-6">
-                Where purity
+                What is
                 <br />
-                <span className="text-crimson-700 italic">becomes a promise.</span>
+                <span className="text-crimson-700">Paprish Foods?</span>
               </h2>
 
               <p className="text-base text-charcoal-muted/70 leading-relaxed mb-8">

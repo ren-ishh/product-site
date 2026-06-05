@@ -61,7 +61,7 @@ export default function QualityPromise() {
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-6">
-              We don't cut<br />corners. <span className="text-crimson-400 italic">Ever.</span>
+              We don't cut<br />corners. <span className="text-crimson-400">Ever.</span>
             </h2>
             <p className="text-white/50 leading-relaxed max-w-md mb-10 text-base">
               Quality isn't a department at Paprish — it's the foundation of everything we do. From farm to packet, every step is designed to preserve what nature intended.

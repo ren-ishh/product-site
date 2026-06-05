@@ -1,6 +1,15 @@
+import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 
 const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect fill='%23f2dbb8' width='400' height='300'/%3E%3Ctext fill='%23c4853d' font-family='serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3ENo Image%3C/text%3E%3C/svg%3E";
+
+const SHIPPING_RATES = {
+  tamilnadu: { label: "Tamil Nadu", price: 20 },
+  other: { label: "Other States", price: 30 },
+  north: { label: "Northern States", price: 50 },
+} as const;
+
+type ShippingRegion = keyof typeof SHIPPING_RATES;
 
 interface Props {
   open: boolean;
@@ -9,6 +18,7 @@ interface Props {
 
 export default function CartDrawer({ open, onClose }: Props) {
   const { items, removeFromCart, updateQty, clearCart, total, count } = useCart();
+  const [shippingRegion, setShippingRegion] = useState<ShippingRegion>("tamilnadu");
 
   function handleWhatsApp() {
     if (items.length === 0) return;
@@ -18,10 +28,13 @@ export default function CartDrawer({ open, onClose }: Props) {
         `${i + 1}. ${item.name} \u00d7 ${item.quantity} \u2014 \u20B9${parseInt(item.price) * item.quantity}`
     ).join("\n");
 
-    const message =
-      `Hello Paprish Foods! 🌿\n\nHere is my order:\n\n${lines}\n\n🧾 *Total: ₹${total}*\n\nPlease confirm availability and share payment details. Thank you!`;
+    const shipping = SHIPPING_RATES[shippingRegion];
+    const finalTotal = total + shipping.price;
 
-    window.open(`https://wa.me/916374603180?text=${encodeURIComponent(message)}`, "_blank");
+    const message =
+      `Hello Paprish Foods! 🌿\n\nHere is my order:\n\n${lines}\n\n📦 Shipping (${shipping.label}): ₹${shipping.price}\n🧾 *Total: ₹${finalTotal}*\n\nPlease confirm availability and share payment details. Thank you!`;
+
+    window.open(`https://wa.me/918531934020?text=${encodeURIComponent(message)}`, "_blank");
     clearCart();
     onClose();
   }
@@ -125,9 +138,44 @@ export default function CartDrawer({ open, onClose }: Props) {
                   <span className="shrink-0 font-medium">₹{parseInt(item.price) * item.quantity}</span>
                 </div>
               ))}
-              <div className="border-t border-charcoal/8 pt-2 flex justify-between font-bold text-charcoal text-sm">
-                <span>Total</span>
-                <span className="font-bold text-crimson-700">₹{total}</span>
+
+              {/* Shipping Selection */}
+              <div className="border-t border-charcoal/8 pt-3 pb-1 mt-2 space-y-2">
+                <p className="text-xs font-semibold text-charcoal mb-1">Shipping Region:</p>
+                <div className="flex flex-col gap-2">
+                  {(Object.entries(SHIPPING_RATES) as [ShippingRegion, typeof SHIPPING_RATES[ShippingRegion]][]).map(([key, { label, price }]) => (
+                    <label key={key} className="flex items-center justify-between cursor-pointer group">
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="shipping"
+                          value={key}
+                          checked={shippingRegion === key}
+                          onChange={(e) => setShippingRegion(e.target.value as ShippingRegion)}
+                          className="w-4 h-4 accent-crimson-700 cursor-pointer"
+                        />
+                        <span className="text-sm text-charcoal-muted/80 group-hover:text-charcoal transition-colors">{label}</span>
+                      </div>
+                      <span className="text-xs font-medium text-charcoal-muted/60">+₹{price}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Totals Breakdown */}
+              <div className="border-t border-charcoal/8 pt-3 flex flex-col gap-1.5">
+                <div className="flex justify-between text-xs text-charcoal-muted/60">
+                  <span>Subtotal</span>
+                  <span>₹{total}</span>
+                </div>
+                <div className="flex justify-between text-xs text-charcoal-muted/60">
+                  <span>Courier Charge</span>
+                  <span>₹{SHIPPING_RATES[shippingRegion].price}</span>
+                </div>
+                <div className="flex justify-between font-bold text-charcoal text-sm mt-1">
+                  <span>Total</span>
+                  <span className="font-bold text-crimson-700">₹{total + SHIPPING_RATES[shippingRegion].price}</span>
+                </div>
               </div>
             </div>
 

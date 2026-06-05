@@ -24,30 +24,27 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
+      /* Changed py-3 to py-2 when scrolled, and increased transition time for smoothness */
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-2"
+          : "bg-transparent py-5 lg:py-8"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
 
-        {/* ─── LOGO (MADE MUCH BIGGER HERE) ─── */}
-        <a href="#home" className="flex items-center gap-3 group">
+        {/* ─── LOGO (BIGGER ON MOBILE) ─── */}
+        <a href="#home" className="flex items-center group">
           <img
             src="/images/logo.png"
             alt="Paprish Foods Logo"
-            className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${isScrolled ? "h-10" : "h-12"
-              }`}
+            /* 
+                Scrolled: h-10 (mobile) and h-16 (desktop)
+                Top of page: h-32 (mobile) and h-[232px] (desktop) 
+            */
+            className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 ${
+              isScrolled ? "h-10 lg:h-16" : "h-32 lg:h-[232px]"
+            }`}
           />
-          {/* Note: If your logo image already has the text "Paprish Foods" inside it, you can delete this div below! */}
-          <div className="flex flex-col leading-tight hidden sm:flex">
-            <span className={`font-serif font-bold text-charcoal tracking-tight transition-all duration-300 ${isScrolled ? "text-xl" : "text-2xl"}`}>
-              Paprish
-            </span>
-            <span className="text-[0.65rem] text-paprish-600 tracking-[0.2em] uppercase font-medium">
-              Foods
-            </span>
-          </div>
         </a>
 
         {/* ─── Desktop Menu ─── */}

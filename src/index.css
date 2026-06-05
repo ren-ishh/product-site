@@ -41,7 +41,8 @@
   --color-charcoal-muted: #3a3a3a;
 
   /* Typography */
-  --font-serif: "Playfair Display", "DM Serif Display", Georgia, serif;
+  /* Change the serif font to match the sans-serif (Inter) font used for "Paprish" */
+  --font-serif: "Inter", system-ui, -apple-system, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -60,6 +61,11 @@ body {
   background-color: #faf7f2;
   color: #1e1e1e;
   overflow-x: hidden;
+}
+
+/* ADD THIS TO MAKE ALL HEADINGS CAPITALIZED GLOBALLY */
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
 }
 
 /* Selection */

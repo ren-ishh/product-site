@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-paprish-300/25" />
       <div className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full border border-paprish-300/15" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-40 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-36 pb-24 lg:pt-64 lg:pb-40 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left - Text Content */}
           <div>
@@ -25,15 +25,15 @@ export default function Hero() {
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-[1.08] tracking-tight mb-6 animate-fade-up">
               Pure taste,
               <br />
-              <span className="text-crimson-700 italic font-medium">
-                packed fresh
+              <span className="text-crimson-700 font-medium">
+                packed fresh,
               </span>
               <br />
-              for your table.
+              farm to your table.
             </h1>
 
             <p className="text-base sm:text-lg text-charcoal-muted/70 leading-relaxed max-w-lg mb-10 animate-fade-up delay-200">
-              From our kitchen to yours — Paprish Foods brings you the finest
+              Farms to your table — Paprish Foods brings you the finest
               quality spices,instant snack mixes and authentic masalas, carefully
               sourced and hygienically packed to preserve nature's goodness.
             </p>

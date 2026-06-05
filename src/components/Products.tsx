@@ -62,7 +62,7 @@ export default function Products() {
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-[1.15] tracking-tight mb-4">
               Handpicked for your<br />
-              <span className="text-crimson-700 italic">kitchen.</span>
+              <span className="text-crimson-700">kitchen.</span>
             </h2>
             <p className="text-charcoal-muted/60 max-w-lg mx-auto text-base">
               Every product in our catalogue is sourced with intention and packed with care — because your family deserves nothing less.
