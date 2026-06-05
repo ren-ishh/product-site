@@ -24,7 +24,7 @@ function FloatingCart() {
           <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" />
         </svg>
         {count > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-paprish-500 text-white text-[0.6rem] font-bold rounded-full flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-crimson-700 text-white text-[0.6rem] font-bold rounded-full flex items-center justify-center">
             {count > 9 ? "9+" : count}
           </span>
         )}

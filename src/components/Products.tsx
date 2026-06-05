@@ -16,6 +16,15 @@ export default function Products() {
   const [showAll, setShowAll] = useState(false);
   const { addToCart } = useCart();
 
+    // Toast state and handler
+  const [toast, setToast] = useState<string | null>(null);
+  function handleAddToCart(product: Product, e: React.MouseEvent) {
+    e.stopPropagation();
+    addToCart(product);
+    setToast(`${product.name} added to cart!`);
+    setTimeout(() => setToast(null), 3000);
+  }
+
   useEffect(() => {
     async function fetchProducts() {
       const { data, error } = await supabase
@@ -130,7 +139,7 @@ export default function Products() {
                           />
                           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:flex items-center justify-center">
                             <button
-                              onClick={(e) => { e.stopPropagation(); addToCart(product); }}
+                              onClick={(e) => handleAddToCart(product, e)}
                               className="bg-crimson-700 text-white font-medium text-sm px-5 py-2.5 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                             >
                               Add to Cart
@@ -147,15 +156,8 @@ export default function Products() {
                             {product.description}
                           </p>
 
-                          <button
-                            onClick={(e) => { e.stopPropagation(); addToCart(product); }}
-                            className="sm:hidden mt-2 w-full bg-crimson-700 text-white text-xs font-semibold py-2 rounded-lg hover:bg-crimson-800 transition-colors"
-                          >
-                            + Add to Cart
-                          </button>
-
-                          {/* Price and Weight */}
-                          <div className="pt-2 sm:pt-3 border-t border-charcoal/5 flex items-center justify-between mt-auto">
+                          {/* Moved mt-auto here to push both price and button to the exact bottom */}
+                          <div className="pt-2 sm:pt-3 border-t border-charcoal/5 flex items-center justify-between mt-auto mb-2 sm:mb-0">
                             <span className="text-[0.55rem] sm:text-[0.65rem] font-sans font-bold tracking-wider text-crimson-700 uppercase truncate mr-1">
                               {product.weight}
                             </span>
@@ -165,6 +167,13 @@ export default function Products() {
                               </span>
                             )}
                           </div>
+
+                          <button
+                            onClick={(e) => handleAddToCart(product, e)}
+                            className="sm:hidden w-full bg-crimson-700 text-white text-xs font-semibold py-2 rounded-lg hover:bg-crimson-800 transition-colors"
+                          >
+                            + Add to Cart
+                          </button>
                         </div>
                       </div>
                     </ScrollReveal>
@@ -191,7 +200,16 @@ export default function Products() {
           </>
         )}
       </div>
-
+      {/* Toast Popup */}
+      {toast && (
+        <div className="fixed bottom-24 right-6 z-[100] bg-charcoal text-white text-sm font-medium px-6 py-4 rounded-xl shadow-2xl animate-fade-up flex items-center gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          {toast}
+        </div>
+      )}
     </section>
   );
 }
