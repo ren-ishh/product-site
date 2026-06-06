@@ -16,7 +16,7 @@ export default function Products() {
   const [showAll, setShowAll] = useState(false);
   const { addToCart } = useCart();
 
-    // Toast state and handler
+  // Toast state and handler
   const [toast, setToast] = useState<string | null>(null);
   function handleAddToCart(product: Product, e: React.MouseEvent) {
     e.stopPropagation();
@@ -70,14 +70,14 @@ export default function Products() {
           </div>
         </ScrollReveal>
 
-        {/* Category Filter */}
+        {/* Category Filter - UPDATED TO HORIZONTAL SCROLL */}
         <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-2 mb-14">
+          <div className="flex overflow-x-auto flex-nowrap items-center justify-start lg:justify-center gap-3 mb-14 pb-4 -mx-6 px-6 lg:mx-0 lg:px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {allCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat.id
+                className={`shrink-0 whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat.id
                     ? "bg-crimson-700 text-white shadow-lg shadow-crimson-700/20"
                     : "bg-white text-charcoal-muted/70 hover:text-charcoal hover:bg-white/80 border border-charcoal/5"
                   }`}
@@ -188,9 +188,9 @@ export default function Products() {
                       className="flex items-center gap-2 bg-white border border-charcoal/10 text-charcoal text-sm font-semibold px-8 py-3 rounded-full shadow-sm hover:bg-paprish-50 transition-all duration-300"
                     >
                       {showAll ? (
-                        <>Show Less <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 15l-6-6-6 6"/></svg></>
+                        <>Show Less <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 15l-6-6-6 6" /></svg></>
                       ) : (
-                        <>See All {filtered.length} Products <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg></>
+                        <>See All {filtered.length} Products <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg></>
                       )}
                     </button>
                   </div>
