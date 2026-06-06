@@ -83,6 +83,7 @@ export default function AdminApp() {
     const [loading, setLoading] = useState(true);
 
     const [productModal, setProductModal] = useState<Product | "new" | null>(null);
+    const [productCategoryFilter, setProductCategoryFilter] = useState("all");
     const [reviewModal, setReviewModal] = useState<Review | "new" | null>(null);
     const [toast, setToast] = useState<string | null>(null);
     const [pForm, setPForm] = useState<ProductFormData>(emptyProduct);
@@ -162,6 +163,13 @@ export default function AdminApp() {
 
     if (!authed) return <LoginScreen onLogin={() => setAuthed(true)} />;
     const pendingReviews = reviews.filter(r => !r.is_approved).length;
+
+    const filteredProducts =
+      productCategoryFilter === "all"
+        ? products
+        : products.filter(
+            (p) => p.category === productCategoryFilter
+          );
 
     return (
         <div className="flex h-screen bg-[#F8F9FA] overflow-hidden font-sans">
@@ -249,13 +257,32 @@ export default function AdminApp() {
                         </div>
                     ) : activeTab === "products" ? (
                         <div className="animate-fade-in">
-                            <div className="flex justify-end mb-6">
-                                <button onClick={() => { setPForm(emptyProduct); setProductModal("new"); }} className="w-full sm:w-auto bg-charcoal text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-charcoal-light shadow-lg shadow-charcoal/10 flex items-center justify-center gap-2">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" /></svg> Add New Product
-                                </button>
+                            <div className="flex flex-col sm:flex-row justify-between gap-4 mb-6">
+                              <select
+                                value={productCategoryFilter}
+                                onChange={(e) => setProductCategoryFilter(e.target.value)}
+                                className="px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm"
+                              >
+                                <option value="all">All Categories</option>
+                                {CATEGORIES.map((cat) => (
+                                  <option key={cat.id} value={cat.id}>
+                                    {cat.label}
+                                  </option>
+                                ))}
+                              </select>
+
+                              <button
+                                onClick={() => {
+                                  setPForm(emptyProduct);
+                                  setProductModal("new");
+                                }}
+                                className="bg-charcoal text-white px-6 py-3 rounded-xl text-sm font-medium"
+                              >
+                                Add New Product
+                              </button>
                             </div>
                             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
-                                {products.map(p => (
+                                {filteredProducts.map(p => (
                                     <div key={p.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group">
                                         <div className="aspect-[4/3] bg-gray-50 relative overflow-hidden">
                                             <img src={p.image_url || PLACEHOLDER} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />

@@ -16,4 +16,5 @@ export type ProductFormData = Omit<Product, 'id' | 'created_at'>;
 export const CATEGORIES = [
     { id: "instant-mixes", label: "Instant Snack Mixes" },
     { id: "masalas", label: "Pure Spices & Masalas" },
+    { id: "rice-premium-kits", label: "Rice Items & Premium Kits" },
 ];

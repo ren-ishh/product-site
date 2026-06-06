@@ -25,7 +25,7 @@ export default function ContactBanner() {
             </h2>
 
             <p className="text-charcoal-muted/60 leading-relaxed max-w-md mb-6 lg:mb-10 text-base">
-              Whether you want to order for your home, stock our products in your retail store, or have a general inquiry — we are just a message away.
+              Whether you are ordering for your home, looking for wholesale products, or just have a question, simply contact us! We make it easy to get our products straight to your store.
             </p>
 
             {/* Contact info */}

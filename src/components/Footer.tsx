@@ -9,15 +9,15 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-14">
           <div className="lg:col-span-2">
             {/* ─── MASSIVE FOOTER LOGO ─── */}
-            <a href="#home" className="inline-block mb-8 group">
+            <a href="#home" className="inline-block mb-8 group lg:-ml-20">
               <img
                 src="/images/logo.png"
                 alt="Paprish Foods Logo"
                 /* Increased size: h-32 on mobile, h-40 on desktop */
-                className="w-auto h-32 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105 origin-left"
+                className="w-auto h-56 sm:h-85 object-contain transition-transform duration-500 group-hover:scale-105 origin-left"
               />
             </a>
-            
+
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
               Bringing you the purest packaged foods — from our family to yours. Quality you can taste, trust you can count on.
             </p>
