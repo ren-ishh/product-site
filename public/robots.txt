@@ -1,0 +1,12 @@
+# robots.txt for Paprish Foods
+# https://www.paprishfoods.com
+
+User-agent: *
+Allow: /
+
+# Block admin panel from indexing
+Disallow: /admin
+Disallow: /admin.html
+
+# Sitemap location
+Sitemap: https://www.paprishfoods.com/sitemap.xml 
