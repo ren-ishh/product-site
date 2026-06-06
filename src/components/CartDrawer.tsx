@@ -1,5 +1,8 @@
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, useEffect, useMemo, type FormEvent } from "react";
+import Select from "react-select";
 import { useCart } from "@/context/CartContext";
+// 1. Import your new data file
+import { INDIA_LOCATIONS } from "@/data/indiaLocations"; 
 
 const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect fill='%23f2dbb8' width='400' height='300'/%3E%3Ctext fill='%23c4853d' font-family='serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3ENo Image%3C/text%3E%3C/svg%3E";
 
@@ -36,27 +39,72 @@ const initialCustomerDetails: CustomerDetails = {
   alternateMobile: "",
 };
 
+// 2. OPTIMIZATION: Calculate state options outside the component 
+// so it only runs once when the app loads, not on every render.
+const stateOptions = Object.keys(INDIA_LOCATIONS).map(state => ({ 
+  value: state, 
+  label: state 
+}));
+
+const customSelectStyles = {
+  control: (base: any, state: any) => ({
+    ...base,
+    borderRadius: '0.75rem', 
+    minHeight: '46px', 
+    boxShadow: state.isFocused ? '0 0 0 2px rgba(221, 160, 90, 0.2)' : '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+    borderColor: state.isFocused ? '#dda05a' : '#e5e7eb',
+    '&:hover': {
+      borderColor: state.isFocused ? '#dda05a' : '#e5e7eb'
+    },
+    fontSize: '0.875rem',
+  }),
+  option: (base: any, state: any) => ({
+    ...base,
+    backgroundColor: state.isSelected ? '#DD1F1F' : state.isFocused ? '#faf1e0' : 'white',
+    color: state.isSelected ? 'white' : '#1e1e1e',
+    fontSize: '0.875rem',
+    cursor: 'pointer',
+    '&:active': {
+      backgroundColor: '#DD1F1F',
+      color: 'white'
+    }
+  }),
+  placeholder: (base: any) => ({
+    ...base,
+    color: '#9ca3af',
+  }),
+  menu: (base: any) => ({
+    ...base,
+    borderRadius: '0.75rem',
+    overflow: 'hidden',
+    zIndex: 9999,
+  })
+};
+
 export default function CartDrawer({ open, onClose }: Props) {
   const { items, removeFromCart, updateQty, clearCart, total, count } = useCart();
   const [step, setStep] = useState<"cart" | "checkout">("cart");
   const [shippingRegion, setShippingRegion] = useState<ShippingRegion>("tamilnadu");
   const [customerDetails, setCustomerDetails] = useState<CustomerDetails>(initialCustomerDetails);
 
-  // 1. Prevent background scrolling when the drawer is open
+  // 3. OPTIMIZATION: Use useMemo so district logic only calculates when the state actually changes
+  const districtOptions = useMemo(() => {
+    if (!customerDetails.state || !INDIA_LOCATIONS[customerDetails.state]) return [];
+    return INDIA_LOCATIONS[customerDetails.state].map(district => ({ 
+      value: district, 
+      label: district 
+    }));
+  }, [customerDetails.state]);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-
-    // Cleanup function to ensure scrolling is restored if the component unmounts
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  // 2. Reset to cart step when closed or emptied
   useEffect(() => {
     if (!open || items.length === 0) {
       setStep("cart");
@@ -70,6 +118,11 @@ export default function CartDrawer({ open, onClose }: Props) {
   function handleWhatsApp(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (items.length === 0) return;
+
+    if (!customerDetails.state || !customerDetails.district) {
+      alert("Please select both your State and District.");
+      return;
+    }
 
     const lines = items.map(
       (item, i) =>
@@ -91,17 +144,14 @@ export default function CartDrawer({ open, onClose }: Props) {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className={`fixed inset-0 bg-charcoal/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={onClose}
       />
 
-      {/* Drawer */}
       <div
         className={`fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 flex flex-col shadow-2xl transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? "translate-x-0" : "translate-x-full"}`}
       >
-        {/* ─── Header ─── */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-charcoal/5 shrink-0 bg-white z-10">
           <div className="flex items-center gap-3">
             {step === "checkout" && (
@@ -133,7 +183,6 @@ export default function CartDrawer({ open, onClose }: Props) {
           </button>
         </div>
 
-        {/* ─── Step 1: Cart Items ─── */}
         {step === "cart" && (
           <>
             <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
@@ -226,12 +275,10 @@ export default function CartDrawer({ open, onClose }: Props) {
           </>
         )}
 
-        {/* ─── Step 2: Checkout Form ─── */}
         {step === "checkout" && (
           <form onSubmit={handleWhatsApp} className="flex-1 flex flex-col overflow-hidden animate-fade-in">
             <div className="flex-1 overflow-y-auto px-6 py-5 space-y-6 bg-gray-50/50">
 
-              {/* Order Summary Block */}
               <div className="bg-white rounded-xl p-4 border border-charcoal/5 shadow-sm">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-charcoal-muted/50 mb-3">Order Summary</h3>
                 <div className="space-y-2 mb-3">
@@ -266,8 +313,7 @@ export default function CartDrawer({ open, onClose }: Props) {
                 </div>
               </div>
 
-              {/* Customer Details Form */}
-              <div className="space-y-4">
+              <div className="space-y-4 pb-4">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-charcoal-muted/50">Delivery Details</h3>
 
                 <div>
@@ -282,7 +328,6 @@ export default function CartDrawer({ open, onClose }: Props) {
                   />
                 </div>
 
-                {/* Primary Phone */}
                 <div>
                   <label htmlFor="phone" className="block text-xs font-semibold text-charcoal mb-1.5">Phone Number</label>
                   <input
@@ -310,32 +355,41 @@ export default function CartDrawer({ open, onClose }: Props) {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label htmlFor="district" className="block text-xs font-semibold text-charcoal mb-1.5">District</label>
-                    <input
-                      id="district"
-                      required
-                      type="text"
-                      value={customerDetails.district}
-                      onChange={(e) => updateCustomerDetail("district", e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-sm text-charcoal outline-none focus:border-paprish-400 focus:ring-2 focus:ring-paprish-400/20 transition-all shadow-sm"
+                <div className="grid grid-cols-1 gap-4">
+                  {/* SEARCHABLE STATE DROPDOWN */}
+                  <div className="relative z-30">
+                    <label htmlFor="state" className="block text-xs font-semibold text-charcoal mb-1.5">State</label>
+                    <Select
+                      options={stateOptions}
+                      value={stateOptions.find(opt => opt.value === customerDetails.state) || null}
+                      onChange={(option) => {
+                        updateCustomerDetail("state", option ? option.value : "");
+                        updateCustomerDetail("district", ""); // Reset district when state changes
+                      }}
+                      placeholder="Search state..."
+                      isSearchable
+                      styles={customSelectStyles}
                     />
                   </div>
-                  <div>
-                    <label htmlFor="state" className="block text-xs font-semibold text-charcoal mb-1.5">State</label>
-                    <input
-                      id="state"
-                      required
-                      type="text"
-                      value={customerDetails.state}
-                      onChange={(e) => updateCustomerDetail("state", e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-sm text-charcoal outline-none focus:border-paprish-400 focus:ring-2 focus:ring-paprish-400/20 transition-all shadow-sm"
+
+                  {/* SEARCHABLE DISTRICT DROPDOWN */}
+                  <div className="relative z-20">
+                    <label htmlFor="district" className="block text-xs font-semibold text-charcoal mb-1.5">District</label>
+                    <Select
+                      options={districtOptions}
+                      value={districtOptions.find(opt => opt.value === customerDetails.district) || null}
+                      onChange={(option) => {
+                        updateCustomerDetail("district", option ? option.value : "");
+                      }}
+                      placeholder={customerDetails.state ? "Search district..." : "Select state first"}
+                      isSearchable
+                      isDisabled={!customerDetails.state}
+                      styles={customSelectStyles}
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3 pt-1">
                   <div>
                     <label htmlFor="pincode" className="block text-xs font-semibold text-charcoal mb-1.5">Pincode</label>
                     <input
@@ -366,7 +420,6 @@ export default function CartDrawer({ open, onClose }: Props) {
               </div>
             </div>
 
-            {/* Sticky Bottom Actions */}
             <div className="shrink-0 border-t border-charcoal/5 px-6 py-5 bg-white z-10">
               <div className="flex justify-between items-center mb-4">
                 <span className="text-sm font-semibold text-charcoal">Final Total:</span>
