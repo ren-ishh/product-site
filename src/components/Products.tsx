@@ -124,10 +124,6 @@ export default function Products() {
                       <div
                         className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden hover-lift relative border border-charcoal/5 h-full flex flex-col"
                       >
-                        {product.featured && (
-                          <div className="product-card-ribbon">Bestseller</div>
-                        )}
-
                         {/* Image */}
                         <div className="aspect-[4/3] overflow-hidden bg-paprish-100/50 shrink-0 relative">
                           <img
@@ -149,6 +145,10 @@ export default function Products() {
 
                         {/* Content */}
                         <div className="p-3 sm:p-5 flex flex-col flex-1">
+                          {product.featured && (
+                            <div className="product-card-ribbon">Bestseller</div>
+                          )}
+
                           <h3 className="font-serif font-semibold text-charcoal leading-snug text-xs sm:text-base mb-1 line-clamp-2">
                             {product.name}
                           </h3>

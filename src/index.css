@@ -303,26 +303,27 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 
 .product-card-ribbon {
-  position: absolute;
-  top: 16px;
-  left: -4px;
+  align-self: flex-start;
   background: #b11c1c;
   color: white;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
   text-transform: uppercase;
-  padding: 4px 12px 4px 10px;
-  z-index: 2;
+  padding: 5px 7px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
-.product-card-ribbon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  border-left: 4px solid #801818;
-  border-bottom: 6px solid transparent;
+@media (min-width: 640px) {
+  .product-card-ribbon {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+  }
 }
 
 /* ============================================
